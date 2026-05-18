@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Sistem Informasi Akademik Santri Maskanul Huda An-Nur</title>
 <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
@@ -62,7 +62,12 @@ html, body {
   line-height:1.8;
 }
 
-iframe { width:100%; height:100%; border:none; }
+iframe {
+  width:100%;
+  height:100%;
+  border:none;
+  transform-origin:top left;
+}
 </style>
 </head>
 <body>
@@ -78,9 +83,28 @@ iframe { width:100%; height:100%; border:none; }
 </div>
 
 <iframe
+  id="mainFrame"
   src="https://script.google.com/macros/s/AKfycbzlgo7xcu-irUFcTKYo0PXuy4ryI1izmWLsR8p944r-9JzwtVHR8uSRA8Pd3KI9Gr5i3g/exec"
   onload="document.getElementById('loading').style.display='none'">
 </iframe>
+
+<script>
+try {
+  var iframe = document.getElementById('mainFrame');
+  iframe.addEventListener('load', function() {
+    try {
+      var iframeDoc = this.contentDocument || this.contentWindow.document;
+      var meta = iframeDoc.querySelector('meta[name="viewport"]');
+      if (!meta) {
+        meta = iframeDoc.createElement('meta');
+        meta.name = 'viewport';
+        iframeDoc.head.appendChild(meta);
+      }
+      meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    } catch(e) {}
+  });
+} catch(e) {}
+</script>
 
 </body>
 </html>
