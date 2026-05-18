@@ -3,264 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-Sistem Informasi Akademik Santri Maskanul Huda An-Nur
-</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<title>Sistem Informasi Akademik Santri Maskanul Huda An-Nur</title>
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-:root{
-  --forest:#0b3b2e;
-  --forest2:#0f5132;
-  --gold:#C8A96B;
-  --white:#ffffff;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html,body{
-  width:100%;
-  height:100%;
+html, body {
+  width:100%; height:100%;
   overflow:hidden;
-  background:var(--forest);
-  font-family:'Poppins',sans-serif;
+  background:#0b3b2e;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* =========================
-   LOADING SCREEN
-========================= */
-.loading{
-  position:fixed;
-  inset:0;
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  overflow:hidden;
-
-  background:
-  radial-gradient(circle at top right,
-  rgba(200,169,107,.18),
-  transparent 28%),
-
-  linear-gradient(
-  145deg,
-  #041c14 0%,
-  #0a3527 45%,
-  #0f5132 100%);
+.loading {
+  position:fixed; inset:0; z-index:999;
+  display:flex; align-items:center; justify-content:center;
+  background:#0b3b2e;
 }
 
-/* Ornamen Background */
-.loading::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  opacity:.05;
+.content { text-align:center; padding:2rem; }
 
-  background-image:
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23C8A96B' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='40'/%3E%3Ccircle cx='60' cy='60' r='24'/%3E%3Cpath d='M60 12v96M12 60h96'/%3E%3C/g%3E%3C/svg%3E");
-
-  animation:bgMove 40s linear infinite;
-}
-
-@keyframes bgMove{
-  from{
-    transform:translateY(0);
-  }
-  to{
-    transform:translateY(-120px);
-  }
-}
-
-/* =========================
-   LOGO
-========================= */
-.logo-wrap{
-  position:relative;
-  margin-bottom:28px;
-}
-
-.logo-wrap::before{
-  content:'';
-  position:absolute;
-  inset:-12px;
+.logo {
+  width:80px; height:80px;
   border-radius:50%;
-  border:1px solid rgba(200,169,107,.25);
-}
-
-.logo{
-  width:120px;
-  height:120px;
+  border:1.5px solid rgba(200,169,107,0.5);
   object-fit:contain;
-  border-radius:50%;
-  padding:10px;
-
-  background:
-  rgba(255,255,255,.04);
-
-  border:2px solid rgba(200,169,107,.35);
-
-  box-shadow:
-  0 0 30px rgba(200,169,107,.15),
-  0 10px 30px rgba(0,0,0,.35);
-
-  animation:float 4s ease-in-out infinite;
+  margin-bottom:1.5rem;
 }
 
-@keyframes float{
-  0%,100%{
-    transform:translateY(0px);
-  }
-  50%{
-    transform:translateY(-6px);
-  }
+.eyebrow {
+  font-size:11px;
+  letter-spacing:3px;
+  color:rgba(200,169,107,0.7);
+  text-transform:uppercase;
+  margin-bottom:0.5rem;
 }
 
-/* =========================
-   TITLE
-========================= */
-.main-title{
-  font-family:'Playfair Display',serif;
-  font-size:42px;
-  font-weight:600;
+.title {
+  font-size:22px;
+  font-weight:500;
   color:#fff;
-  line-height:1.4;
-  margin-bottom:14px;
-  text-shadow:0 3px 10px rgba(0,0,0,.3);
+  line-height:1.5;
+  margin-bottom:0.5rem;
 }
 
-/* Arabic */
-.arabic{
-  font-family:'Scheherazade New',serif;
-  font-size:34px;
-  color:var(--gold);
+.arabic {
+  font-family:'Scheherazade New', serif;
+  font-size:22px;
+  color:rgba(200,169,107,0.9);
+  line-height:2;
+  margin-bottom:1.5rem;
+}
+
+.subtitle {
+  font-size:13px;
+  color:rgba(255,255,255,0.45);
   line-height:1.8;
-  margin-bottom:14px;
-  text-shadow:0 2px 8px rgba(0,0,0,.35);
 }
 
-/* Ornament */
-.ornament{
-  color:var(--gold);
-  font-size:18px;
-  letter-spacing:6px;
-  margin-bottom:20px;
-  opacity:.9;
-}
-
-/* Subtitle */
-.subtitle{
-  max-width:760px;
-  padding:0 25px;
-
-  color:rgba(255,255,255,.82);
-
-  font-size:16px;
-  line-height:1.9;
-  font-weight:300;
-}
-
-/* =========================
-   IFRAME
-========================= */
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media(max-width:768px){
-
-  .logo{
-    width:95px;
-    height:95px;
-  }
-
-  .main-title{
-    font-size:28px;
-    padding:0 20px;
-  }
-
-  .arabic{
-    font-size:28px;
-    padding:0 20px;
-  }
-
-  .subtitle{
-    font-size:14px;
-    line-height:1.8;
-  }
-
-}
-
+iframe { width:100%; height:100%; border:none; }
 </style>
 </head>
-
 <body>
 
-<!-- =========================
-     LOADING SCREEN
-========================= -->
 <div class="loading" id="loading">
-
-  <!-- Logo -->
-  <div class="logo-wrap">
-    <img
-      src="https://lh3.googleusercontent.com/d/1fn5FDmQNhpsewoQNtpUv2TmgQ9yiSN3X"
-      class="logo"
-      alt="Logo Pondok"
-    >
+  <div class="content">
+    <img src="https://lh3.googleusercontent.com/d/1fn5FDmQNhpsewoQNtpUv2TmgQ9yiSN3X" class="logo" alt="Logo">
+    <p class="eyebrow">Pondok Pesantren Tahfidzul Qur'an</p>
+    <h1 class="title">Maskanul Huda An-Nur</h1>
+    <p class="arabic">مَسْكَنُ الْهُدَى وَالنُّور</p>
+    <p class="subtitle">Sistem Informasi Akademik Santri</p>
   </div>
-
-  <!-- Title -->
-  <div class="main-title">
-    Sistem Informasi Santri<br>
-    Maskanul Huda An-Nur
-  </div>
-
-  <!-- Arabic -->
-  <div class="arabic">
-    مَسْكَنُ الْهُدَى وَالنُّور
-  </div>
-
-  <!-- Ornament -->
-  <div class="ornament">
-    ✦ ━━━━━ ✦
-  </div>
-
-  <!-- Subtitle -->
-  <div class="subtitle">
-    Selamat datang di Sistem Informasi Akademik Santri<br>
-    Pondok Pesantren Tahfidzul Qur'an<br>
-    <b>Maskanul Huda An-Nur</b><br><br>
-
-    Media informasi akademik santri meliputi absensi, 
-    perkembangan belajar, tahfidz, tahsin, diniyah,
-    serta informasi kegiatan pondok pesantren.
-  </div>
-
 </div>
 
-<!-- =========================
-     WEBSITE
-========================= -->
 <iframe
-src="https://script.google.com/macros/s/AKfycbzuSviDDCDSvTmfguNzLUhgbG7dCbLqOXds4KGGx7DlEMXSsAPFN-yl1EV9ZQGs2Nu4Nw/exec"
-allow="camera; microphone; geolocation"
-onload="document.getElementById('loading').style.display='none'">
+  src="https://script.google.com/macros/s/AKfycbzlgo7xcu-irUFcTKYo0PXuy4ryI1izmWLsR8p944r-9JzwtVHR8uSRA8Pd3KI9Gr5i3g/exec"
+  onload="document.getElementById('loading').style.display='none'">
 </iframe>
 
 </body>
