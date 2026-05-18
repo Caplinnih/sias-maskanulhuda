@@ -62,6 +62,19 @@ html, body {
   line-height:1.8;
 }
 
+.loading-text {
+  font-size:12px;
+  color:rgba(200,169,107,0.6);
+  margin-top:2rem;
+  letter-spacing:1px;
+  animation:pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity:0.4; }
+  50% { opacity:1; }
+}
+
 iframe {
   width:100%;
   height:100%;
@@ -79,12 +92,13 @@ iframe {
     <h1 class="title">Maskanul Huda An-Nur</h1>
     <p class="arabic">مَسْكَنُ الْهُدَى وَالنُّور</p>
     <p class="subtitle">Sistem Informasi Akademik Santri</p>
+    <p class="loading-text" id="loadingText">Memuat sistem...</p>
   </div>
 </div>
 
 <iframe
   id="mainFrame"
-  src="https://script.google.com/macros/s/AKfycbzlgo7xcu-irUFcTKYo0PXuy4ryI1izmWLsR8p944r-9JzwtVHR8uSRA8Pd3KI9Gr5i3g/exec"
+  src="https://script.google.com/macros/s/AKfycbwXpdOPwRV-P8kEmB5hP4ffGohZglR-Ys0GKxklCeZBERvCX0LuHtRjySZti-kdvQft-g/exec"
   onload="document.getElementById('loading').style.display='none'">
 </iframe>
 
